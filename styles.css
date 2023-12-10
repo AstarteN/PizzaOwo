@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+    position: relative;
+  }
+  
+  h1 {
+    margin-top: 10vh; /* Adjust the margin-top value for the h1 element */
+    padding: 20px;
+    text-align: center; /* Center-align the text within h1 */
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  #owoifiedText {
+    font-size: 1.2em;
+  }
+  
+  /* Styling for the pizza images */
+  #pizza1,
+  #pizza2 {
+    max-width: 100%;
+    margin-top: 20px;
+    animation: spin 5s infinite linear;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #pizza1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  #pizza2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  #furryImage {
+    max-width: 200px;
+    margin-top: 20px;
+  }
+  

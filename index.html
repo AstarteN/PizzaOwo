@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owoify Pizza Website</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: black; /* Set background color to black */
+      color: white; /* Set text color to white */
+      position: relative; /* Make the body a positioned container */
+    }
+
+    h1 {
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    #owoifiedText {
+      font-size: 1.2em;
+    }
+
+    /* Positioning for the pizza images */
+    #pizza1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px; 
+      height: auto; 
+    }
+
+    #pizza2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px; 
+      height: auto;
+    }
+
+    #furryImage {
+      max-width: 150px;
+      margin-top: 20px; /* Add some margin to separate the furry image from the text */
+    }
+  </style>
+</head>
+
+<body onload="owoifyPizza()">
+  <h1>Welcome to the Owoify Pizza Recipe Website</h1>
+  <h2>A fun way to decipher a recipe! Can you bake a pizza with this recipe? </h2>
+  <img src="pizza1.png" alt="Pizza 1" id="pizza1">
+  <img src="pizza2.png" alt="Pizza 2" id="pizza2">
+  <img src="furry.png" alt="Furry Image" id="furryImage">
+
+  <p id="owoifiedText"></p>
+  
+  <script>
+    async function owoifyPizza() {
+      try {
+        const response = await fetch('/owoify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const data = await response.json();
+        document.getElementById('owoifiedText').innerText = data.owoifiedText;
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
+</body>
+
+</html>
